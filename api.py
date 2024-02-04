@@ -30,7 +30,7 @@ def predict():
     h=int(request.args.get('h'))
     classifier=generate_model('iot.csv')
     result=classifier.predict([[h]])
-    return str(result[0])
+    return {'msg': str(result[0])}
 
 if __name__=="__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)
